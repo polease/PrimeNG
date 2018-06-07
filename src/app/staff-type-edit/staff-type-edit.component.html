@@ -1,0 +1,28 @@
+<div>
+  <div  >
+    <label >Staff Type Code</label>
+    <input  type="text" pInputText  [(ngModel)]="staffType.code" />
+  </div>
+  <div >
+    <label> Staff Type Description</label>
+    <input type="text" pInputText [(ngModel)]="staffType.description"/>
+  </div>
+  <div >
+    <label> Staff Role</label>
+    <p-dropdown [options]="roleOptions" [(ngModel)]="staffType.role"></p-dropdown>
+  </div>
+  <div >
+    <label>Enable After Call Work</label>
+    <p-dropdown [options]="enableOptions" [(ngModel)]="staffType.enableCall"></p-dropdown>
+  </div>
+  <div >
+    <label>Restrict Call History</label>
+    <p-dropdown [options]="enableOptions" [(ngModel)]="staffType.enableRestrictCall"></p-dropdown>
+  </div>
+
+    <p-button label="save"  (onClick)="onSave()"></p-button>
+  
+  
+</div>
+  
+  

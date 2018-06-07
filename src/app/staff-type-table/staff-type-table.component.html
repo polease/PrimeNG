@@ -1,0 +1,29 @@
+<p-button label="load" (click)="onLoad()"></p-button>
+<p-button label="add" (click)="onAdd()"></p-button>
+<p-table [value]="staffTypes" selectionMode="single" [(selection)]="selectedStaffType" (onRowSelect)="onRowSelect($event)" >
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Description</th>
+          <th>Code</th>
+          <th>Role</th>
+          <th>Active?</th>
+          <th>Last Modified By?</th>
+          <th>Last Modified Date/Time</th> 
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-staffType>
+    <tr  [pSelectableRow]="staffType" >
+        <td>{{staffType.description}}</td>
+        <td>{{staffType.code}}</td>
+        <td>{{staffType.role}}</td>
+        <td>{{staffType.active}}</td>
+        <td>{{staffType.lastModifiedBy}}</td>
+        <td>{{staffType.lastModifiedDateTime}}</td>
+    </tr>
+</ng-template>
+</p-table>
+<p-dialog header="Update Staff Type" [(visible)]="visible" (onStaffTypeSaved)="onStaffTypeSaved()">
+  <app-staff-type-edit [staffType]="selectedStaffType" ></app-staff-type-edit>
+
+
+</p-dialog>
